@@ -31,7 +31,7 @@ public class TeamsExpansion extends PlaceholderExpansion {
 
     @Override
     public @NotNull String getAuthor() {
-        return "PaulCodesUK";
+        return "PaulCodesUK,DreamUniverse843";
     }
 
     @Override
@@ -94,7 +94,12 @@ public class TeamsExpansion extends PlaceholderExpansion {
             return player.getName();
         }else {
             if(identifier.contains("color")) {
-                return getTeamColor(getPlayerTeam(player.getName())) + "";
+                if(getTeamColor(getPlayerTeam(player.getName())) == null)  {
+                    return "";
+                }
+                else {
+                    return getTeamColor(getPlayerTeam(player.getName())) + "";
+                }
             } else if(identifier.contains("prefix")) {
                 return getTeamPrefix(getPlayerTeam(player.getName())) + "";
             } else if(identifier.contains("suffix")) {
